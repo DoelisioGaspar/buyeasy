@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompraFácil - Bancada</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- =========================================== -->
+    <!-- HEADER                                      -->
+    <!-- =========================================== -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="btn-voltar">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <img src="imagens/logo/logo-comprafacil.jpg" alt="CompraFácil" class="logo-img">
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html#como-funciona" class="nav-link">Como funciona</a>
+                <button class="carrinho-icone" id="carrinho-icone">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="contador-carrinho">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================================== -->
+    <!-- BANCADA HERO - COM LOGO DA BANCADA         -->
+    <!-- =========================================== -->
+    <section class="bancada-hero" id="bancada-hero">
+        <div class="container">
+            <div class="bancada-logo-container">
+                <img src="imagens/bancadas/ti12bd.jpg" alt="Logo TI12BD" onerror="this.src='imagens/logo/logo-comprafacil.jpg'">
+            </div>
+            <h1 id="nome-bancada">Carregando...</h1>
+        </div>
+    </section>
+
+    <!-- =========================================== -->
+    <!-- PRODUTOS                                    -->
+    <!-- =========================================== -->
+    <main>
+        <div class="container">
+            
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-utensils"></i> CARDÁPIO</span>
+                <h2 class="section-title">Nossos <span>produtos</span></h2>
+                <p class="section-subtitle">Escolha seus itens favoritos</p>
+            </div>
+            
+            <!-- FILTROS -->
+            <div class="filtros-container">
+                <button class="filtro-btn active" data-filtro="todos">Todos</button>
+                <button class="filtro-btn" data-filtro="salgado">Salgados</button>
+                <button class="filtro-btn" data-filtro="bebida">Bebidas</button>
+                <button class="filtro-btn" data-filtro="promoção">Promoções</button>
+            </div>
+            
+            <!-- Grid de Produtos -->
+            <div class="produtos-grid" id="lista-produtos">
+                <!-- PRODUTOS SERÃO INSERIDOS VIA JAVASCRIPT -->
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- =========================================== -->
+    <!-- CARRINHO OVERLAY                            -->
+    <!-- =========================================== -->
+    <div id="carrinho-overlay" class="carrinho-overlay">
+        <div class="carrinho-conteudo">
+            <div class="carrinho-header">
+                <h3><i class="fas fa-shopping-bag"></i> Meu Pedido</h3>
+                <button id="fechar-carrinho" class="btn-fechar"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="carrinho-itens" id="carrinho-itens">
+                <div class="carrinho-vazio">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Seu carrinho está vazio</p>
+                </div>
+            </div>
+            
+            <!-- FORMULÁRIO DO CLIENTE -->
+            <div class="carrinho-form">
+                <h4><i class="fas fa-user"></i> Dados para entrega</h4>
+                
+                <div class="form-group">
+                    <label for="cliente-nome">Seu nome <span class="required">*</span></label>
+                    <input type="text" id="cliente-nome" class="form-input" placeholder="Ex: João Silva" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cliente-local">Local de entrega <span class="required">*</span></label>
+                    <input type="text" id="cliente-local" class="form-input" placeholder="Ex: Sala de jogos" required>
+                </div>
+                
+                <p class="form-nota">
+                    <i class="fas fa-info-circle"></i> Pagamento no momento da entrega
+                </p>
+            </div>
+            
+            <!-- TOTAL -->
+            <div class="carrinho-total">
+                <span>Total:</span>
+                <span id="total-carrinho">0 Kz</span>
+            </div>
+            
+            <!-- BOTÕES -->
+            <button id="finalizar-pedido" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Fazer a Encomenda
+            </button>
+            
+            <button id="limpar-carrinho" class="btn-limpar">
+                <i class="fas fa-trash"></i> Limpar Carrinho
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================== -->
+    <!-- RODAPÉ                                      -->
+    <!-- =========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="imagens/logo/logo-comprafacil.png" alt="CompraFácil">
+            </div>
+            
+            <p class="footer-dev">
+                Desenvolvido por <strong>TI12BD STARTUP</strong> 🚀
+            </p>
+            
+            <p class="footer-whatsapp">
+                <i class="fab fa-whatsapp"></i> 
+                <a href="https://wa.me/244938080177">SUPORTE</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- =========================================== -->
+    <!-- SCRIPTS                                     -->
+    <!-- =========================================== -->
+    <script src="js/produtos.js"></script>
+    <script src="js/carrinho.js"></script>
+    <script src="js/whatsapp.js"></script>
+    
+    <script>
+        // ===========================================
+        // DADOS DAS BANCADAS
+        // ===========================================
+        /* COMENTÁRIO PARA PROGRAMADORES:
+           Para adicionar uma NOVA BANCADA:
+           1. Copie todo o objeto "TI12BD" dentro de dadosBancadas
+           2. Cole abaixo e altere:
+              - nome: "Nome da Nova Bancada"
+              - produtos: adicione os produtos seguindo o modelo
+           3. Os produtos devem ter:
+              - id: número único (use 201, 202, 203...)
+              - nome: nome do produto
+              - descricao: descrição curta
+              - preco: número (sem Kz)
+              - imagem: nome do arquivo (ex: "produto.jpg")
+              - categoria: "salgado", "bebida", "promoção"
+              - tag: texto curto de destaque (opcional)
+        */
+        
+        const dadosBancadas = {
+            "TI12BD": {
+                nome: "TI12BD",
+                produtos: [
+                    { id: 101, nome: "Mini Cachorro", descricao: "Mini cachorro-quente com molho especial", preco: 300, imagem: "mini-cachorro.jpg", categoria: "salgado", tag: "🌭 MINI" },
+                    { id: 102, nome: "Mini Pizza", descricao: "Mini pizza de queijo, calabresa ou frango", preco: 300, imagem: "mini-pizza.jpg", categoria: "salgado", tag: "🍕 MINI" },
+                    { id: 103, nome: "Chamuça", descricao: "Chamuça de carne ou frango", preco: 200, imagem: "chamuca.jpg", categoria: "salgado", tag: "🥟 CROCANTE" },
+                    { id: 104, nome: "Risóis", descricao: "Risóis de camarão ou carne", preco: 50, imagem: "risois.jpg", categoria: "salgado", tag: "⚡ PROMOÇÃO" },
+                    { id: 105, nome: "Pastel", descricao: "Pastel de carne, queijo ou frango", preco: 100, imagem: "pastel.jpg", categoria: "salgado", tag: "🥟 CASEIRO" },
+                    { id: 106, nome: "Sumo Grande (500ml)", descricao: "Sumo natural (500ml)", preco: 300, imagem: "sumo-500.jpg", categoria: "bebida", tag: "🧃 500ml" },
+                    { id: 107, nome: "Sumo Pequeno (300ml)", descricao: "Sumo natural (300ml)", preco: 200, imagem: "sumo-300.jpg", categoria: "bebida", tag: "🥤 300ml" },
+                    { id: 108, nome: "Combo Promocional", descricao: "2 Mini Cachorros + 2 Sumos (300ml)", preco: 900, imagem: "combo.jpg", categoria: "promoção", tag: "💰 ECONOMIA" }
+                ]
+            }
+            
+            // ===========================================
+            // EXEMPLO DE NOVA BANCADA (descomente para usar)
+            /*
+            ,
+            "Doces": {
+                nome: "Doces & Cia",
+                produtos: [
+                    { id: 201, nome: "Bolo de Chocolate", descricao: "Fatia de bolo com cobertura", preco: 500, imagem: "bolo.jpg", categoria: "doce", tag: "🍰 CASEIRO" },
+                    { id: 202, nome: "Cupcake", descricao: "Baunilha com chantilly", preco: 300, imagem: "cupcake.jpg", categoria: "doce", tag: "🧁 ESPECIAL" }
+                ]
+            }
+            */
+        };
+
+        // ===========================================
+        // FUNÇÃO PARA CARREGAR A BANCADA
+        // ===========================================
+        function carregarBancada() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nomeBancada = urlParams.get('bancada') || "TI12BD";
+            
+            const bancada = dadosBancadas[nomeBancada] || dadosBancadas["TI12BD"];
+            
+            // Atualiza o título
+            document.getElementById('nome-bancada').textContent = bancada.nome;
+            document.title = `CompraFácil - ${bancada.nome}`;
+            
+            // Carrega produtos
+            const container = document.getElementById('lista-produtos');
+            container.innerHTML = '';
+            
+            bancada.produtos.forEach(produto => {
+                const card = document.createElement('div');
+                card.className = 'produto-card';
+                card.setAttribute('data-categoria', produto.categoria);
+                
+                card.innerHTML = `
+                    <div class="produto-imagem">
+                        <img src="imagens/produtos/${produto.imagem}" 
+                             alt="${produto.nome}"
+                             onerror="this.src='https://placehold.co/400x300/3F6F98/white?text=${produto.nome.replace(' ', '+')}'">
+                        ${produto.tag ? `<span class="produto-tag">${produto.tag}</span>` : ''}
+                    </div>
+                    <div class="produto-info">
+                        <h3>${produto.nome}</h3>
+                        <p class="produto-descricao">${produto.descricao}</p>
+                        <div class="produto-footer">
+                            <span class="produto-preco">${produto.preco} <small>Kz</small></span>
+                            <button class="btn-add" onclick="adicionarAoCarrinho({
+                                id: ${produto.id},
+                                nome: '${produto.nome.replace(/'/g, "\\'")}',
+                                preco: ${produto.preco},
+                                imagem: '${produto.imagem}',
+                                bancada: '${bancada.nome}'
+                            })">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // ===========================================
+        // SISTEMA DE FILTROS
+        // ===========================================
+        function initFiltros() {
+            const filtros = document.querySelectorAll('.filtro-btn');
+            
+            filtros.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filtros.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filtro = this.getAttribute('data-filtro');
+                    const produtos = document.querySelectorAll('.produto-card');
+                    
+                    produtos.forEach(prod => {
+                        if (filtro === 'todos') {
+                            prod.style.display = 'block';
+                        } else {
+                            const categoria = prod.getAttribute('data-categoria');
+                            prod.style.display = categoria === filtro ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+        }
+
+        // ===========================================
+        // INICIALIZAÇÃO
+        // ===========================================
+        window.onload = function() {
+            carregarBancada();
+            initFiltros();
+            
+            // Verifica se o carrinho já tem itens e atualiza
+            if (typeof atualizarTodosContadores === 'function') {
+                atualizarTodosContadores();
+            }
+        };
+    </script>
+</body>
+</html>

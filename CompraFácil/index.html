@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompraFácil - Feira Empreendedora 2026</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilo.css">
+    
+    <!-- Ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- =========================================== -->
+    <!-- HEADER - Todas as páginas usam este header  -->
+    <!-- =========================================== -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <!-- LOGO: Apenas a imagem (já contém o nome) -->
+                <img src="imagens/logo/logo-comprafacil.JPG" alt="CompraFácil" class="logo-img">
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Início</a>
+                <a href="#bancadas" class="nav-link">Bancadas</a>
+                <a href="#como-funciona" class="nav-link">Como funciona</a>
+                <!-- CARRINHO: O contador é atualizado pelo JavaScript -->
+                <button class="carrinho-icone" id="carrinho-icone">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="contador-carrinho">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================================== -->
+    <!-- HERO SLIDESHOW - 3 IMAGENS                  -->
+    <!-- =========================================== -->
+    <section class="hero-slideshow">
+        <div class="slide-container" id="slideContainer">
+            <!-- Slide 1 -->
+            <div class="slide active" style="background-image: url('imagens/hero/slide1.jpg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>Peça comida da feira</h2>
+                    <p>sem sair do lugar</p>
+                    <a href="#bancadas" class="slide-btn">Ver bancadas</a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide" style="background-image: url('imagens/hero/slide2.jpg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>Mais de 20 alimentos diferentes para sí</h2>
+                    <p>churrasco, pizzas, sumos e muito mais</p>
+                    <a href="#bancadas" class="slide-btn">Ver cardápio</a>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide" style="background-image: url('imagens/hero/slide3.jpg');">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h2>Feira Empreendedora 13 Março 2026</h2>
+                    <p>Faça já o seu pedido</p>
+                    <a href="#como-funciona" class="slide-btn">Como funciona</a>
+                </div>
+            </div>
+            
+            <!-- Setas de navegação -->
+            <div class="slide-arrow left" onclick="mudarSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slide-arrow right" onclick="mudarSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            
+            <!-- Dots indicadores -->
+            <div class="slide-dots">
+                <span class="dot active" onclick="irParaSlide(0)"></span>
+                <span class="dot" onclick="irParaSlide(1)"></span>
+                <span class="dot" onclick="irParaSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================== -->
+    <!-- SEÇÃO BANCADAS EM DESTAQUE                  -->
+    <!-- =========================================== -->
+    <section class="destaque-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-star"></i> DESTAQUE</span>
+                <h2 class="section-title">Bancada em <span>Destaque</span></h2>
+                <p class="section-subtitle">Bancadas em alta com produtos de qualidade!</p>
+            </div>
+            
+            <!-- =========================================== -->
+            <!-- COMENTÁRIO PARA PROGRAMADORES:              -->
+            <!--/*                                                */
+            /*  COMO ADICIONAR UMA NOVA BANCADA DESTAQUE:    */
+            /*  1. Copiar o card abaixo                       */
+            /*  2. Alterar:                                   */
+            /*     - src da imagem                             */
+            /*     - nome da bancada                           */
+            /*     - descrição                                 */
+            /*     - link (bancada.html?bancada=NOME)          */
+            /*  3. Manter classe "destaque"                    */
+            /* ========================================== */-->
+            
+            <div class="cards-grid">
+                <!-- CARD BANCADA DESTAQUE - TI12BD -->
+                <div class="bancada-card destaque">
+                    <div class="card-imagem">
+                        <img src="imagens/bancadas/ti12bd.jpg" alt="TI12BD" onerror="this.src='https://placehold.co/400x300/3F6F98/white?text=TI12BD'">
+                        <div class="card-overlay"></div>
+                        <span class="card-categoria"><i class="fas fa-utensils"></i> Salgados & Bebidas</span>
+                    </div>
+                    
+                    <div class="card-conteudo">
+                        <div class="card-header">
+                            <h3>TI12BD-Mini Delicias</h3>
+                        </div>
+                        
+                        <p class="card-descricao">
+                            Mini cachorro, mini pizza, chamuça, rissol, pastel e sumos naturais. Os melhores preços da feira!
+                        </p>
+                        
+                        <a href="bancada.html?bancada=TI12BD" class="card-btn">
+                            Ver cardápio <span><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================== -->
+    <!-- SEÇÃO TODAS AS BANCADAS                     -->
+    <!-- =========================================== -->
+    <main>
+        <div class="container">
+            
+            <div class="section-header" id="bancadas">
+                <span class="section-tag"><i class="fas fa-store"></i> BANCADAS</span>
+                <h2 class="section-title">Todas as <span>bancadas</span></h2>
+                <p class="section-subtitle">Conheça todas as bancadas participantes</p>
+            </div>
+            
+            <!-- Cards de Todas as Bancadas -->
+            <div class="cards-grid" id="todas-bancadas">
+                
+                <!-- =========================================== -->
+                <!-- COMENTÁRIO PARA PROGRAMADORES:              -->
+                <!--/*                                                */
+                /*  COMO ADICIONAR NOVA BANCADA:                 */
+                /*  1. Copiar um card inteiro (div.bancada-card) */
+                /*  2. Colar AQUI (dentro deste container)       */
+                /*  3. Alterar:                                   */
+                /*     - src da imagem                             */
+                /*     - nome da bancada                           */
+                /*     - descrição                                 */
+                /*     - link (bancada.html?bancada=NOME)          */
+                /*  4. Se for destaque, adicionar classe "destaque" */
+                /* ========================================== -->
+                
+                <!-- CARD BANCADA 1 - TI12BD -->
+                <div class="bancada-card">
+                    <div class="card-imagem">
+                        <img src="imagens/bancadas/ti12bd.jpg" alt="TI12BD" onerror="this.src='https://placehold.co/400x300/3F6F98/white?text=TI12BD'">
+                        <div class="card-overlay"></div>
+                        <span class="card-categoria"><i class="fas fa-utensils"></i> Salgados & Bebidas</span>
+                    </div>
+                    
+                    <div class="card-conteudo">
+                        <div class="card-header">
+                            <h3>TI12BD-Mini Delicias</h3>
+                        </div>
+                        
+                        <p class="card-descricao">
+                            Mini cachorro, mini pizza, chamuça, rissol, pastel e sumos.
+                        </p>
+                        
+                        <a href="bancada.html?bancada=TI12BD" class="card-btn">
+                            Ver cardápio <span><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- =========================================== -->
+                <!-- EXEMPLO DE COMO ADICIONAR NOVA BANCADA:    -->
+                <!--/*                                              */
+                /*  Descomente o código abaixo para adicionar   */
+                /*  a bancada "Doces & Cia"                     */
+                /* ========================================== -->
+                
+                <!-- 
+                <div class="bancada-card">
+                    <div class="card-imagem">
+                        <img src="imagens/bancadas/doces.jpg" alt="Doces & Cia">
+                        <span class="card-categoria">Doces</span>
+                    </div>
+                    <div class="card-conteudo">
+                        <h3>Doces & Cia</h3>
+                        <p>Bolos, cupcakes e doces tradicionais.</p>
+                        <a href="bancada.html?bancada=Doces" class="card-btn">Ver cardápio</a>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </main>
+
+    <!-- =========================================== -->
+    <!-- SEÇÃO VENDA NA COMPRAFÁCIL                  -->
+    <!-- =========================================== -->
+    <section class="venda-section">
+        <div class="container">
+            <div class="venda-content">
+                <i class="fas fa-store venda-icon"></i>
+                <h2>É vendedor?</h2>
+                <p>Quer que a sua bancada apareça na plataforma? Cadastre-se agora!</p>
+                
+                <a href="https://wa.me/244938080177?text=Olá! Gostaria de cadastrar minha bancada na CompraFácil para a feira do dia 13 de março. Pode me dar mais informações?" 
+                   target="_blank" 
+                   class="btn-whatsapp-grande">
+                    <i class="fab fa-whatsapp"></i>
+                    Cadastrar minha bancada
+                </a>
+                
+                <p class="venda-taxa">
+                    <i class="fas fa-check-circle"></i> Taxa especial: 500 Kz por bancada
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================== -->
+    <!-- SEÇÃO COMO FUNCIONA                         -->
+    <!-- =========================================== -->
+    <section class="como-funciona" id="como-funciona">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-magic"></i> COMO FUNCIONA</span>
+                <h2 class="section-title">Simples, rápido e <span>prático</span></h2>
+                <p class="section-subtitle">Faça seu pedido em 3 passos</p>
+            </div>
+            
+            <div class="steps-container">
+                <!-- Passo 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Escolha a bancada</h3>
+                    <p>Navegue pelas bancadas e veja os produtos disponíveis</p>
+                </div>
+                
+                <!-- Passo 2 - AGORA VISÍVEL -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Monte seu pedido</h3>
+                    <p>Adicione produtos ao carrinho e informe seu nome e local</p>
+                </div>
+                
+                <!-- Passo 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Finalize a sua encomenda</h3>
+                    <p>Envie o pedido e receba onde estiver</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================== -->
+    <!-- CARRINHO OVERLAY                            -->
+    <!-- =========================================== -->
+    <div id="carrinho-overlay" class="carrinho-overlay">
+        <div class="carrinho-conteudo">
+            <div class="carrinho-header">
+                <h3><i class="fas fa-shopping-bag"></i> Meu Pedido</h3>
+                <button id="fechar-carrinho" class="btn-fechar"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="carrinho-itens" id="carrinho-itens">
+                <div class="carrinho-vazio">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Seu carrinho está vazio</p>
+                </div>
+            </div>
+            
+            <!-- FORMULÁRIO DO CLIENTE -->
+            <div class="carrinho-form">
+                <h4><i class="fas fa-user"></i> Dados para entrega</h4>
+                
+                <div class="form-group">
+                    <label for="cliente-nome">Seu nome <span class="required">*</span></label>
+                    <input type="text" id="cliente-nome" class="form-input" placeholder="Ex: João Silva" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cliente-local">Local de entrega <span class="required">*</span></label>
+                    <input type="text" id="cliente-local" class="form-input" placeholder="Ex: Sala de jogos" required>
+                </div>
+                
+                <p class="form-nota">
+                    <i class="fas fa-info-circle"></i> Pagamento no momento da entrega
+                </p>
+            </div>
+            
+            <!-- TOTAL -->
+            <div class="carrinho-total">
+                <span>Total:</span>
+                <span id="total-carrinho">0 Kz</span>
+            </div>
+            
+            <!-- BOTÕES -->
+            <button id="finalizar-pedido" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Fazer a Encomenda
+            </button>
+            
+            <button id="limpar-carrinho" class="btn-limpar">
+                <i class="fas fa-trash"></i> Limpar Carrinho
+            </button>
+        </div>
+    </div>
+
+    <!-- =========================================== -->
+    <!-- RODAPÉ                                      -->
+    <!-- =========================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="imagens/logo/logo-comprafacil.jpg" alt="CompraFácil">
+            </div>
+            
+            <p class="footer-dev">
+                Desenvolvido por <strong>TI12BD STARTUP</strong> 🚀
+            </p>
+            
+            <p class="footer-whatsapp">
+                <i class="fab fa-whatsapp"></i> 
+                <a href="https://wa.me/244938080177">SUPORTE</a>
+            </p>
+            
+            <p class="footer-copy">
+                © 2026 CompraFácil - Feira Empreendedora 13 de Março
+            </p>
+        </div>
+    </footer>
+
+    <!-- =========================================== -->
+    <!-- SCRIPTS                                     -->
+    <!-- =========================================== -->
+    <script src="js/produtos.js"></script>
+    <script src="js/carrinho.js"></script>
+    <script src="js/whatsapp.js"></script>
+    
+    <!-- Script do Slideshow -->
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let slideInterval;
+        
+        function mostrarSlide(n) {
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+        
+        function mudarSlide(n) {
+            slideIndex += n;
+            mostrarSlide(slideIndex);
+            reiniciarIntervalo();
+        }
+        
+        function irParaSlide(n) {
+            slideIndex = n;
+            mostrarSlide(slideIndex);
+            reiniciarIntervalo();
+        }
+        
+        function avancarSlide() {
+            slideIndex++;
+            mostrarSlide(slideIndex);
+        }
+        
+        function iniciarSlideshow() {
+            slideInterval = setInterval(avancarSlide, 9000); // 3 segundos
+        }
+        
+        function reiniciarIntervalo() {
+            clearInterval(slideInterval);
+            iniciarSlideshow();
+        }
+        
+        // Inicia o slideshow quando a página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            iniciarSlideshow();
+        });
+    </script>
+</body>
+</html>

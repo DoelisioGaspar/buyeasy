@@ -226,7 +226,7 @@ header .container {
 }
 
 .logo-img {
-    height: 35px;
+    height: 45px;
     width: auto;
     max-width: 100px;
     transition: var(--transicao-bounce);

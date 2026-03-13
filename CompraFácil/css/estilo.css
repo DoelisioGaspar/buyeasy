@@ -227,11 +227,13 @@ header .container {
 }
 
 .logo-img {
+    --scale: 2%;
     height: 60px;
     width: auto;
     max-width: 100px;
     transition: var(--transicao-bounce);
-    scale: 1.899;
+    margin-left: calc(8px - var(--scale));
+    scale: var(--scale);
 }
 
 @media (min-width: 768px) {

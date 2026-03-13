@@ -230,6 +230,12 @@ header .container {
     width: auto;
     max-width: 100px;
     transition: var(--transicao-bounce);
+    overflow: hidden;
+}
+
+.logo-img img {
+    height: 100%; 
+    object-fit: cover;
 }
 
 @media (min-width: 768px) {

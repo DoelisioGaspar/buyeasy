@@ -231,6 +231,7 @@ header .container {
     max-width: 100px;
     transition: var(--transicao-bounce);
     overflow: hidden;
+    scale: 1.2;
 }
 
 .logo-img img {

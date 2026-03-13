@@ -55,7 +55,7 @@ const bancadas = [
                 preco: 50,
                 imagem: "Biscoito.jpeg",
                 categoria: "salgado",
-                tag: "🥟 CROCANTE"
+                tag: "🥟 Suave"
             },
             {
                 id: 104,

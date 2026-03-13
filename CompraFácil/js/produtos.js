@@ -50,15 +50,6 @@ const bancadas = [
             },
             {
                 id: 103,
-                nome: "Chamuça",
-                descricao: "Chamuça de carne ou frango, crocante e temperada",
-                preco: 200,
-                imagem: "chamuca.jpg",
-                categoria: "salgado",
-                tag: "🥟 CROCANTE"
-            },
-            {
-                id: 109,
                 nome: "Biscoito",
                 descricao: "Chamuça de carne ou frango, crocante e temperada",
                 preco: 50,

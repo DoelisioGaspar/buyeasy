@@ -51,7 +51,7 @@ const bancadas = [
             {
                 id: 103,
                 nome: "Biscoito",
-                descricao: "Chamuça de carne ou frango, crocante e temperada",
+                descricao: "Biscoito fresquinho",
                 preco: 50,
                 imagem: "Biscoito.jpeg",
                 categoria: "salgado",

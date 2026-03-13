@@ -65,7 +65,7 @@ const bancadas = [
                 imagem: "Biscoito.jpeg",
                 categoria: "salgado",
                 tag: "🥟 CROCANTE"
-            }
+            },
             {
                 id: 104,
                 nome: "Risóis",

@@ -58,6 +58,15 @@ const bancadas = [
                 tag: "🥟 CROCANTE"
             },
             {
+                id: 103,
+                nome: "Biscoito",
+                descricao: "Chamuça de carne ou frango, crocante e temperada",
+                preco: 50,
+                imagem: "Biscoito.jpeg",
+                categoria: "salgado",
+                tag: "🥟 CROCANTE"
+            }
+            {
                 id: 104,
                 nome: "Risóis",
                 descricao: "Risóis de camarão ou carne, massa fina e crocante",

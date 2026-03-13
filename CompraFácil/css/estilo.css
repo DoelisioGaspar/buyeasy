@@ -87,6 +87,7 @@ header {
     border-bottom: 1px solid rgba(63, 111, 152, 0.1);
     transition: var(--transicao-media);
     width: 100%;
+    overflow: hidden;
 }
 
 /* Container centralizado com padding responsivo */
@@ -223,7 +224,6 @@ header .container {
     gap: 5px;
     animation: fadeInLeft 0.5s ease;
     flex-shrink: 0;
-    overflow: hidden;
 }
 
 .logo-img {
@@ -231,7 +231,7 @@ header .container {
     width: auto;
     max-width: 100px;
     transition: var(--transicao-bounce);
-    scale: 2;
+    scale: 1.899;
 }
 
 @media (min-width: 768px) {

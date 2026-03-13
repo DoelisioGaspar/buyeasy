@@ -995,6 +995,7 @@ header .container {
 
 .card-imagem {
     height: 140px;
+    border-radius: inherit;
     position: relative;
     overflow: hidden;
 }

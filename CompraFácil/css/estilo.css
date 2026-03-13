@@ -227,7 +227,7 @@ header .container {
 }
 
 .logo-img {
-    --scale: 1.899;
+    --scale: 2;
     height: 60px;
     width: auto;
     max-width: 100px;

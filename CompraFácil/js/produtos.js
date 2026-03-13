@@ -48,15 +48,7 @@ const bancadas = [
                 categoria: "salgado",
                 tag: "🍕 ITALIANA"
             },
-            {
-                id: 103,
-                nome: "Biscoito",
-                descricao: "Biscoito fresquinho",
-                preco: 50,
-                imagem: "Biscoito.jpeg",
-                categoria: "salgado",
-                tag: "🥟 Suave"
-            },
+            
             {
                 id: 104,
                 nome: "Risóis",

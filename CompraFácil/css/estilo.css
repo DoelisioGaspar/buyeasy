@@ -232,7 +232,7 @@ header .container {
     width: auto;
     max-width: 100px;
     transition: var(--transicao-bounce);
-    margin-left: calc(16px - var(--scale));
+    margin-left: 2rem;
     scale: var(--scale);
 }
 

@@ -223,6 +223,7 @@ header .container {
     gap: 5px;
     animation: fadeInLeft 0.5s ease;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .logo-img {
@@ -230,7 +231,7 @@ header .container {
     width: auto;
     max-width: 100px;
     transition: var(--transicao-bounce);
-    object-fit: cover;
+    scale: 2;
 }
 
 @media (min-width: 768px) {
